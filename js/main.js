@@ -192,8 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectData = {
     gilliganmoss: {
       title: 'Gilligan Moss',
-      desc: 'One half of Gilligan Moss — an electronic duo releasing music through Ninja Tune / Foreign Family Collective. The music blends sample-driven production, vocal chops, and club-ready rhythms with intricate sound design.',
+      desc: 'One half of Gilligan Moss — an electronic duo known for inventive production and acclaimed remixes for Glass Animals, ODESZA, S\u00e9bastian Tellier, and Yoke Lore. Released through Ninja Tune / Foreign Family Collective. Strengths in songwriting, melody, creative sampling, and unexpected textures.',
       subs: [
+        { label: 'Ceremonial EP (2018)', href: 'https://gilliganmoss.bandcamp.com/album/ceremonial' },
         { label: 'Self-Titled Album (2021)', href: 'https://gilliganmoss.bandcamp.com/album/gilligan-moss' },
         { label: 'Speaking Across Time (2024)', href: 'https://gilliganmoss.bandcamp.com/album/speaking-across-time' },
         { label: 'A La Mode EP (2025)', href: 'https://gilliganmoss.bandcamp.com/album/a-la-mode' }
