@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ben Cronin</title>
+  <meta name="description" content="Ben Cronin — making sounds, pictures, and sentences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+</head>
+<body>
+
+  <!-- Scribble Canvas -->
+  <canvas id="scribble-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-links" id="nav-links">
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+      <span class="dark-toggle-icon">&#9790;</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- Hero Section (compact) -->
+  <section class="hero" id="hero">
+    <div class="hero-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="hero-name">Ben Cronin</h1>
+      <p class="hero-tagline">songwriter, producer, and builder of things on the internet</p>
+      <div class="hero-rule"></div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <div class="section-header">
+      <h2 class="section-title">Selected Projects</h2>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="music">Music</button>
+      <button class="filter-pill" data-filter="projects">Projects</button>
+      <button class="filter-pill" data-filter="writing">Writing</button>
+    </div>
+
+    <div class="scroll-arrows">
+      <button class="scroll-arrow" id="scroll-left" aria-label="Scroll left">&larr;</button>
+      <button class="scroll-arrow" id="scroll-right" aria-label="Scroll right">&rarr;</button>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- Gilligan Moss -->
+      <article class="project-card reveal" data-category="music" data-project="gilliganmoss">
+        <div class="card-media">
+          <div class="card-thumbnail">
+            <img src="assets/images/Gilligan Moss/Gilligan_Moss_ST_1080px.png" alt="Gilligan Moss self-titled album cover" loading="lazy">
+          </div>
+          <div class="audio-player" data-src="">
+            <button class="play-btn" aria-label="Play Gilligan Moss">
+              <span class="play-icon"></span>
+            </button>
+            <div class="progress-container">
+              <div class="progress-bar"></div>
+            </div>
+            <span class="audio-time">0:00</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Gilligan Moss</h3>
+          <p class="card-desc">Two albums — the self-titled debut and Speaking Across Time — plus the A La Mode EP.</p>
+          <div class="card-socials">
+            <a href="https://www.instagram.com/gilliganmoss/" target="_blank" rel="noopener" aria-label="Instagram" class="card-social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="https://x.com/gilliganmoss" target="_blank" rel="noopener" aria-label="Twitter/X" class="card-social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@gilliganmoss" target="_blank" rel="noopener" aria-label="TikTok" class="card-social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+          <div class="card-links">
+            <a href="https://gilliganmoss.bandcamp.com/album/gilligan-moss" class="card-link" target="_blank" rel="noopener">Bandcamp →</a>
+          </div>
+        </div>
+        <button class="info-btn info-violet" aria-label="More info" data-project="gilliganmoss">i</button>
+      </article>
+
+      <!-- BMO's Mixtape -->
+      <article class="project-card reveal" data-category="music" data-project="bmo">
+        <div class="card-media">
+          <div class="card-thumbnail">
+            <img src="https://coverartarchive.org/release/cbfa64b7-19d7-41cc-9db0-e537b24679af/27874380882-1200.jpg" alt="BMO's Mixtape album cover" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Adventure Time: BMO's Mixtape</h3>
+          <p class="card-desc">Original music for Cartoon Network's Adventure Time. Songs written for BMO.</p>
+          <div class="card-links">
+            <a href="https://variety.com/2020/music/news/adventure-time-mixtape-gilligan-moss-1234775811/" class="card-link" target="_blank" rel="noopener">Variety →</a>
+            <a href="https://open.spotify.com/album/1h2gxTbV9HF01Ci9IaXGJt" class="card-link" target="_blank" rel="noopener">Spotify →</a>
+          </div>
+        </div>
+        <button class="info-btn info-teal" aria-label="More info" data-project="bmo">i</button>
+      </article>
+
+      <!-- Music Videos -->
+      <article class="project-card reveal" data-category="music" data-project="musicvideos">
+        <div class="card-media">
+          <div class="card-thumbnail">
+            <img src="https://img.youtube.com/vi/3y-dTwiL2AM/maxresdefault.jpg" alt="Gilligan Moss - World Service music video" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Music Videos</h3>
+          <p class="card-desc">Official music videos for Gilligan Moss — World Service, Slow Down, and Who Loves You.</p>
+          <div class="card-links">
+            <a href="https://www.youtube.com/watch?v=3y-dTwiL2AM" class="card-link" target="_blank" rel="noopener">World Service →</a>
+            <a href="https://www.youtube.com/watch?v=D5eWdXEMDqA" class="card-link" target="_blank" rel="noopener">Who Loves You →</a>
+          </div>
+        </div>
+        <button class="info-btn info-coral" aria-label="More info" data-project="musicvideos">i</button>
+      </article>
+
+      <!-- Production -->
+      <article class="project-card reveal" data-category="music" data-project="production">
+        <div class="card-media">
+          <div class="card-thumbnail">
+            <img src="assets/images/Production/IMG_4086.JPG" alt="Studio gear" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Production & Songwriting</h3>
+          <p class="card-desc">Writing and producing for other artists.</p>
+        </div>
+        <button class="info-btn info-gradient" aria-label="More info" data-project="production">i</button>
+      </article>
+
+      <!-- Recipe Index -->
+      <article class="project-card reveal" data-category="projects" data-project="recipeindex">
+        <div class="card-media">
+          <div class="card-thumbnail">
+            <img src="assets/images/Recipe Index/CleanShot 2026-04-14 at 10.30.52@2x.png" alt="Recipe Index homepage" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Recipe Index</h3>
+          <p class="card-desc">A recipe website with cook mode, beautiful typography, and zero ads.</p>
+        </div>
+        <button class="info-btn info-orange" aria-label="More info" data-project="recipeindex">i</button>
+      </article>
+
+      <!-- Two Songs -->
+      <article class="project-card reveal" data-category="writing" data-project="twosongs">
+        <div class="card-media">
+          <div class="card-thumbnail">
+            <img src="assets/images/Two Songs/unnamed.jpg" alt="Two Songs newsletter illustration" loading="lazy">
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Two Songs</h3>
+          <p class="card-desc">A music newsletter. Two songs per issue, and the reasons they're worth your time.</p>
+        </div>
+        <button class="info-btn info-teal" aria-label="More info" data-project="twosongs">i</button>
+      </article>
+
+      <!-- scape.radio -->
+      <article class="project-card reveal" data-category="projects" data-project="scaperadio">
+        <div class="card-media">
+          <div class="card-thumbnail card-video-thumb">
+            <video autoplay loop muted playsinline>
+              <source src="assets/images/Scape Radio/Punkscape 9653.mp4" type="video/mp4">
+            </video>
+            <span class="thumbnail-text thumbnail-text-overlay">scape.radio</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">scape.radio</h3>
+          <p class="card-desc">10,000 continuous pieces of generative music. Always playing, never repeating.</p>
+        </div>
+        <button class="info-btn info-dark" aria-label="More info" data-project="scaperadio">i</button>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Info Tray (shared, expands from card) -->
+  <div class="info-tray" id="info-tray" aria-hidden="true">
+    <div class="info-tray-inner" id="info-tray-inner"></div>
+  </div>
+
+  <!-- Timeline -->
+  <section class="timeline" id="timeline">
+    <h2 class="section-title">The Timeline</h2>
+    <div class="timeline-track">
+      <div class="timeline-item" data-year="2016">
+        <span class="timeline-year">2016</span>
+        <span class="timeline-label">Gilligan Moss forms</span>
+      </div>
+      <div class="timeline-item" data-year="2020">
+        <span class="timeline-year">2020</span>
+        <span class="timeline-label">BMO's Mixtape</span>
+      </div>
+      <div class="timeline-item highlight" data-year="2021">
+        <span class="timeline-year">2021</span>
+        <span class="timeline-label">Self-titled album</span>
+      </div>
+      <div class="timeline-item" data-year="2022">
+        <span class="timeline-year">2022</span>
+        <span class="timeline-label">Two Songs newsletter</span>
+      </div>
+      <div class="timeline-item" data-year="2023">
+        <span class="timeline-year">2023</span>
+        <span class="timeline-label">Recipe Index</span>
+      </div>
+      <div class="timeline-item highlight" data-year="2024">
+        <span class="timeline-year">2024</span>
+        <span class="timeline-label">Speaking Across Time</span>
+      </div>
+      <div class="timeline-item" data-year="2024">
+        <span class="timeline-year">2024</span>
+        <span class="timeline-label">Music videos</span>
+      </div>
+      <div class="timeline-item highlight" data-year="2025">
+        <span class="timeline-year">2025</span>
+        <span class="timeline-label">A La Mode EP</span>
+      </div>
+      <div class="timeline-item" data-year="2025">
+        <span class="timeline-year">2025</span>
+        <span class="timeline-label">scape.radio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-photo reveal">
+        <div class="photo-placeholder">
+          <img src="assets/images/bio photos/JBAJSEL_ODESZA_TLG-SUMMER_2022_0827_175806_5594.jpg" alt="Ben Cronin performing live" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <h2 class="section-title">About</h2>
+        <p>I'm one half of Gilligan Moss, a producer and songwriter, and a person who can't stop building things on the internet.</p>
+        <p>My work spans electronic music, production for other artists, generative audio experiments, and the occasional website built from scratch. I also used to write a music newsletter called Two Songs.</p>
+        <p>I like the places where music, technology, and design overlap — and I try to make things that live there.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="contact-inner reveal">
+      <h2 class="section-title">Say hello</h2>
+      <a href="mailto:hello@bencronin.com" class="contact-email">hello@bencronin.com</a>
+      <div class="social-links">
+        <a href="https://open.spotify.com/artist/2fo0F81pRzdXjmWP6MkQqB" class="social-link" aria-label="Spotify" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        </a>
+        <a href="https://x.com/gilliganmoss" class="social-link" aria-label="Twitter/X" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/gilliganmoss/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="https://gilliganmoss.bandcamp.com" class="social-link" aria-label="Bandcamp" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secret Section (triggered by drawing 3 circles) -->
+  <section class="secret-section" id="secret-section" aria-hidden="true">
+    <div class="secret-inner">
+      <div class="secret-unlock-msg">
+        <span class="secret-emoji">&#127911;</span>
+        <h3 class="secret-title">You found something</h3>
+        <p class="secret-subtitle">Three circles. You're the kind of person who presses all the buttons. Here's what I've been listening to.</p>
+      </div>
+      <div class="secret-content">
+        <h4 class="secret-playlist-title">Currently</h4>
+        <ol class="secret-tracklist">
+          <li>Heard What You Said <span>Arima Ederra</span></li>
+          <li>Send Me Out <span>Fade Evare</span></li>
+          <li>Collect 200 <span>Collect 200</span></li>
+          <li>Be Someone New <span>Myd, Bethanie Home</span></li>
+          <li>The Fastest Boxer in the East <span>Anish Kumar, Baalti, Stunt Doubles</span></li>
+          <li>CANTLOSETHEHEAT <span>LOVE LANGUAGE, Munan</span></li>
+          <li>okay picasso <span>private browsing</span></li>
+          <li>UnU <span>Gilligan Moss</span></li>
+          <li>Deadhead <span>Foxwarren, Andy Shauf</span></li>
+          <li>Bikini <span>Nick Le&oacute;n, Erika de Casier</span></li>
+          <li>SPEED DEMON <span>Justin Bieber</span></li>
+          <li>Yamaha <span>Dijon</span></li>
+          <li>Real Life <span>ear</span></li>
+          <li>storm <span>Night Tapes</span></li>
+          <li>Dream Night <span>Jamie xx</span></li>
+          <li>Girl I Need You <span>George Reid, AlunaGeorge</span></li>
+          <li>Time.. Do You Know My Name? <span>Gerry Read</span></li>
+          <li>Into Dust (Still Falling) <span>Four Tet</span></li>
+          <li>Mother's Love <span>The Vernon Spring</span></li>
+          <li>Get A Grip <span>Fundido, Emma Dufaux</span></li>
+          <li>In Town <span>Villager</span></li>
+          <li>To The Sky <span>Loukeman</span></li>
+          <li>pikachu <span>Buddy Ross</span></li>
+          <li>Fire 2 <span>Grace Ives</span></li>
+          <li>Come On, Let's Get It <span>Anish Kumar</span></li>
+          <li>Music Lights Color <span>ford., A Beacon School</span></li>
+          <li>Peaches <span>Young Franco, Charlotte Plank</span></li>
+          <li>Dry Spell <span>Kacey Musgraves</span></li>
+          <li>HOT WIFE <span>Tiga, Boys Noize</span></li>
+        </ol>
+      </div>
+      <button class="secret-close" aria-label="Close secret section">&times; close</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Ben Cronin. Built by hand.</p>
+  </footer>
+
+  <!-- Floating Player (cassette + Spotify married) -->
+  <div class="player-float" id="player-float">
+    <div class="spotify-panel" id="spotify-panel">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/1k7tOGSpBicHp3Q0XOKmC5?utm_source=generator&theme=0"
+        width="100%" height="152"
+        frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        style="border-radius:12px;">
+      </iframe>
+    </div>
+    <div class="cassette" id="cassette" aria-label="Music player — drag to move, click to play">
+      <div class="cassette-body">
+        <div class="cassette-reels">
+          <div class="reel reel-left"><div class="reel-hub"></div></div>
+          <div class="cassette-tape-window"></div>
+          <div class="reel reel-right"><div class="reel-hub"></div></div>
+        </div>
+        <div class="cassette-track-name" id="cassette-track">press play</div>
+      </div>
+      <div class="cassette-controls">
+        <button class="cassette-prev" id="cassette-prev" aria-label="Previous track">&laquo;</button>
+        <button class="cassette-play" id="cassette-play" aria-label="Play/Pause">&#9654;</button>
+        <button class="cassette-next" id="cassette-next" aria-label="Next track">&raquo;</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
