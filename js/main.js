@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectData = {
     gilliganmoss: {
       title: 'Gilligan Moss',
-      desc: 'One half of Gilligan Moss — an electronic duo known for inventive production and acclaimed remixes for Glass Animals, ODESZA, S\u00e9bastian Tellier, and Yoke Lore. Released through Ninja Tune / Foreign Family Collective. Strengths in songwriting, melody, creative sampling, and unexpected textures.',
+      desc: 'One half of Gilligan Moss — an electronic duo on Foreign Family Collective / Ninja Tune with 100M+ streams. Known for inventive production and remixes for Glass Animals, ODESZA, S\u00e9bastian Tellier, and Yoke Lore. Toured with ODESZA and Sylvan Esso, played Coachella.',
       subs: [
         { label: 'Ceremonial EP (2018)', href: 'https://gilliganmoss.bandcamp.com/album/ceremonial' },
         { label: 'Self-Titled Album (2021)', href: 'https://gilliganmoss.bandcamp.com/album/gilligan-moss' },
@@ -201,7 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       credits: [
         { label: 'Orly Anan', role: 'Art Direction', href: 'https://www.orlyanan.com/dos/' },
-        { label: 'Nejc Prah', role: 'Art Direction', href: 'https://www.nejcprah.com/projects/gilligan-moss/' }
+        { label: 'Nejc Prah', role: 'Art Direction', href: 'https://www.nejcprah.com/projects/gilligan-moss/' },
+        { label: 'World Service (feat. Betsy)', role: 'Music Video', href: 'https://www.youtube.com/watch?v=3y-dTwiL2AM' },
+        { label: 'Slow Down', role: 'Music Video', href: 'https://www.youtube.com/watch?v=knGb5h3ukw0' },
+        { label: 'Who Loves You — edited by Ben', role: 'Music Video', href: 'https://www.youtube.com/watch?v=D5eWdXEMDqA' }
       ],
       links: [
         { label: 'Bandcamp', href: 'https://gilliganmoss.bandcamp.com/music' },
@@ -216,16 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { label: 'Variety', href: 'https://variety.com/2020/music/news/adventure-time-mixtape-gilligan-moss-1234775811/' },
         { label: 'Paste Magazine', href: 'https://www.pastemagazine.com/music/adventure-time/adventure-time-bmos-mixtape' },
         { label: 'Spotify', href: 'https://open.spotify.com/album/1h2gxTbV9HF01Ci9IaXGJt' }
-      ],
-      links: []
-    },
-    musicvideos: {
-      title: 'Music Videos',
-      desc: 'Official visuals for Gilligan Moss. World Service (feat. Betsy) and Slow Down are from the album Speaking Across Time (2024). Who Loves You (feat. Betsy) is from A La Mode (2025) — and I edited that one. All released through Foreign Family Collective.',
-      subs: [
-        { label: 'World Service (feat. Betsy)', href: 'https://www.youtube.com/watch?v=3y-dTwiL2AM' },
-        { label: 'Slow Down', href: 'https://www.youtube.com/watch?v=knGb5h3ukw0' },
-        { label: 'Who Loves You — edited by Ben', href: 'https://www.youtube.com/watch?v=D5eWdXEMDqA' }
       ],
       links: []
     },
@@ -286,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
     previewHTML += `<div class="tray-card-info"><div class="tray-card-title">${data.title}</div><div class="tray-card-desc">${cardDesc}</div></div></div>`;
 
     // Build right info panel content
-    let infoHTML = `<div class="tray-header"><h3 class="tray-title">${data.title}</h3><p class="tray-desc">${data.desc}</p></div>`;
+    let infoHTML = `<div class="tray-header"><h3 class="tray-title">${data.title}</h3></div>`;
 
     if (data.subs.length) {
       infoHTML += '<div class="tray-subs">';

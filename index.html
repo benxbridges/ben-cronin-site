@@ -52,8 +52,6 @@
     </div>
     <div class="hero-content">
       <h1 class="hero-name">Ben Cronin</h1>
-      <p class="hero-tagline">songwriter, producer, and builder of things on the internet</p>
-      <div class="hero-rule"></div>
     </div>
   </section>
 
@@ -70,12 +68,11 @@
       <button class="filter-pill" data-filter="writing">Writing</button>
     </div>
 
-    <div class="scroll-arrows">
-      <button class="scroll-arrow" id="scroll-left" aria-label="Scroll left">&larr;</button>
-      <button class="scroll-arrow" id="scroll-right" aria-label="Scroll right">&rarr;</button>
-    </div>
-
-    <div class="projects-grid" id="projects-grid">
+    <div class="projects-scroll-wrap">
+      <button class="scroll-arrow scroll-arrow-left" id="scroll-left" aria-label="Scroll left">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="projects-grid" id="projects-grid">
 
       <!-- Gilligan Moss -->
       <article class="project-card reveal" data-category="music" data-project="gilliganmoss">
@@ -95,7 +92,7 @@
         </div>
         <div class="card-body">
           <h3 class="card-title">Gilligan Moss</h3>
-          <p class="card-desc">Two albums — the self-titled debut and Speaking Across Time — plus the A La Mode EP.</p>
+          <p class="card-desc">Two albums and an EP on Foreign Family Collective / Ninja Tune. 100M+ streams, remixes for Glass Animals and ODESZA, tours with ODESZA and Sylvan Esso.</p>
           <div class="card-socials">
             <a href="https://www.instagram.com/gilliganmoss/" target="_blank" rel="noopener" aria-label="Instagram" class="card-social-link">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
@@ -109,6 +106,8 @@
           </div>
           <div class="card-links">
             <a href="https://gilliganmoss.bandcamp.com/album/gilligan-moss" class="card-link" target="_blank" rel="noopener">Bandcamp →</a>
+            <a href="https://www.youtube.com/watch?v=3y-dTwiL2AM" class="card-link" target="_blank" rel="noopener">World Service →</a>
+            <a href="https://www.youtube.com/watch?v=D5eWdXEMDqA" class="card-link" target="_blank" rel="noopener">Who Loves You →</a>
           </div>
         </div>
         <button class="info-btn info-violet" aria-label="More info" data-project="gilliganmoss">i</button>
@@ -123,31 +122,13 @@
         </div>
         <div class="card-body">
           <h3 class="card-title">Adventure Time: BMO's Mixtape</h3>
-          <p class="card-desc">Original music for Cartoon Network's Adventure Time. Songs written for BMO.</p>
+          <p class="card-desc">An album of original songs written for BMO from Cartoon Network's Adventure Time.</p>
           <div class="card-links">
             <a href="https://variety.com/2020/music/news/adventure-time-mixtape-gilligan-moss-1234775811/" class="card-link" target="_blank" rel="noopener">Variety →</a>
             <a href="https://open.spotify.com/album/1h2gxTbV9HF01Ci9IaXGJt" class="card-link" target="_blank" rel="noopener">Spotify →</a>
           </div>
         </div>
         <button class="info-btn info-teal" aria-label="More info" data-project="bmo">i</button>
-      </article>
-
-      <!-- Music Videos -->
-      <article class="project-card reveal" data-category="music" data-project="musicvideos">
-        <div class="card-media">
-          <div class="card-thumbnail">
-            <img src="https://img.youtube.com/vi/3y-dTwiL2AM/maxresdefault.jpg" alt="Gilligan Moss - World Service music video" loading="lazy">
-          </div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Music Videos</h3>
-          <p class="card-desc">Official music videos for Gilligan Moss — World Service, Slow Down, and Who Loves You.</p>
-          <div class="card-links">
-            <a href="https://www.youtube.com/watch?v=3y-dTwiL2AM" class="card-link" target="_blank" rel="noopener">World Service →</a>
-            <a href="https://www.youtube.com/watch?v=D5eWdXEMDqA" class="card-link" target="_blank" rel="noopener">Who Loves You →</a>
-          </div>
-        </div>
-        <button class="info-btn info-coral" aria-label="More info" data-project="musicvideos">i</button>
       </article>
 
       <!-- Production -->
@@ -159,7 +140,7 @@
         </div>
         <div class="card-body">
           <h3 class="card-title">Production & Songwriting</h3>
-          <p class="card-desc">Writing and producing for other artists.</p>
+          <p class="card-desc">Writing and producing for artists across indie, electronic, and pop.</p>
         </div>
         <button class="info-btn info-gradient" aria-label="More info" data-project="production">i</button>
       </article>
@@ -173,7 +154,7 @@
         </div>
         <div class="card-body">
           <h3 class="card-title">Recipe Index</h3>
-          <p class="card-desc">A recipe website with cook mode, beautiful typography, and zero ads.</p>
+          <p class="card-desc">A recipe site with cook mode, clean typography, and zero ads. Built from scratch.</p>
         </div>
         <button class="info-btn info-orange" aria-label="More info" data-project="recipeindex">i</button>
       </article>
@@ -187,7 +168,7 @@
         </div>
         <div class="card-body">
           <h3 class="card-title">Two Songs</h3>
-          <p class="card-desc">A music newsletter. Two songs per issue, and the reasons they're worth your time.</p>
+          <p class="card-desc">A music newsletter. Two songs per issue — one familiar, one new — and the reasons they matter.</p>
         </div>
         <button class="info-btn info-teal" aria-label="More info" data-project="twosongs">i</button>
       </article>
@@ -210,6 +191,10 @@
       </article>
 
     </div>
+      <button class="scroll-arrow scroll-arrow-right" id="scroll-right" aria-label="Scroll right">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
   </section>
 
   <!-- Info Tray (shared, expands from card) -->
@@ -219,27 +204,34 @@
 
   <!-- Timeline -->
   <section class="timeline" id="timeline">
-    <h2 class="section-title">The Timeline</h2>
     <div class="timeline-track">
       <div class="timeline-item" data-year="2011">
         <span class="timeline-year">2011</span>
-        <span class="timeline-label">Colorado College — Creative Writing / Poetry</span>
+        <span class="timeline-label">Colorado College — BA, Creative Writing</span>
+      </div>
+      <div class="timeline-item highlight" data-year="2015">
+        <span class="timeline-year">2015</span>
+        <span class="timeline-label">Gilligan Moss begins</span>
       </div>
       <div class="timeline-item" data-year="2015">
         <span class="timeline-year">2015</span>
-        <span class="timeline-label">Tour with Glass Animals</span>
+        <span class="timeline-label">Glass Animals tour support</span>
       </div>
       <div class="timeline-item highlight" data-year="2016">
         <span class="timeline-year">2016</span>
         <span class="timeline-label">Coachella (DoLab Stage)</span>
       </div>
+      <div class="timeline-item" data-year="2016">
+        <span class="timeline-year">2016</span>
+        <span class="timeline-label">Wythe Hotel — Senior Events Manager</span>
+      </div>
       <div class="timeline-item" data-year="2018">
         <span class="timeline-year">2018</span>
-        <span class="timeline-label">Gilligan Moss — Ceremonial EP</span>
+        <span class="timeline-label">Ceremonial EP</span>
       </div>
       <div class="timeline-item" data-year="2020">
         <span class="timeline-year">2020</span>
-        <span class="timeline-label">BMO's Mixtape (Adventure Time)</span>
+        <span class="timeline-label">Adventure Time: BMO's Mixtape</span>
       </div>
       <div class="timeline-item highlight" data-year="2021">
         <span class="timeline-year">2021</span>
@@ -249,21 +241,17 @@
         <span class="timeline-year">2022</span>
         <span class="timeline-label">Tour w/ ODESZA & Sylvan Esso</span>
       </div>
-      <div class="timeline-item" data-year="2022">
-        <span class="timeline-year">2022</span>
-        <span class="timeline-label">Two Songs newsletter</span>
-      </div>
-      <div class="timeline-item" data-year="2023">
-        <span class="timeline-year">2023</span>
-        <span class="timeline-label">Recipe Index</span>
-      </div>
       <div class="timeline-item highlight" data-year="2024">
         <span class="timeline-year">2024</span>
         <span class="timeline-label">Speaking Across Time</span>
       </div>
       <div class="timeline-item" data-year="2024">
         <span class="timeline-year">2024</span>
-        <span class="timeline-label">Music videos</span>
+        <span class="timeline-label">A&R — sadboy.fm</span>
+      </div>
+      <div class="timeline-item" data-year="2025">
+        <span class="timeline-year">2025</span>
+        <span class="timeline-label">Teaching — Colorado College</span>
       </div>
       <div class="timeline-item highlight" data-year="2025">
         <span class="timeline-year">2025</span>
@@ -286,9 +274,8 @@
       </div>
       <div class="about-text reveal">
         <h2 class="section-title">About</h2>
-        <p>Ben Cronin is a songwriter, music producer, and web developer — a combination that makes more sense than it sounds.</p>
-        <p>He's one half of Gilligan Moss, a project known for inventive production and acclaimed remixes for Glass Animals, ODESZA, and Yoke Lore. He builds websites and creative tech projects, and writes about making things.</p>
-        <p>He came up through creative writing, which mostly means he cares too much about the words in his commit messages.</p>
+        <p>Ben Cronin is a songwriter, producer, and the kind of person who ends up doing a lot of different things.</p>
+        <p>He's one half of Gilligan Moss — an electronic project with two albums on Foreign Family Collective / Ninja Tune, 100M+ streams, and tours with ODESZA and Sylvan Esso. He wrote an album for Adventure Time. Outside of music, he's worked in events at the Wythe Hotel, managed creative communities, taught music production at Colorado College, and builds things on the internet.</p>
       </div>
     </div>
   </section>
@@ -297,7 +284,7 @@
   <section class="contact" id="contact">
     <div class="contact-inner reveal">
       <h2 class="section-title">Say hello</h2>
-      <a href="mailto:hello@bencronin.com" class="contact-email">hello@bencronin.com</a>
+      <a href="mailto:benjicronin@gmail.com" class="contact-email">benjicronin@gmail.com</a>
       <div class="social-links">
         <a href="https://open.spotify.com/artist/2fo0F81pRzdXjmWP6MkQqB" class="social-link" aria-label="Spotify" target="_blank" rel="noopener">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -310,6 +297,9 @@
         </a>
         <a href="https://gilliganmoss.bandcamp.com" class="social-link" aria-label="Bandcamp" target="_blank" rel="noopener">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/ben-cronin-b1816814b" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
       </div>
     </div>
