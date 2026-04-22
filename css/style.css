@@ -361,12 +361,23 @@ button {
   gap: 0.75rem;
 }
 
-.projects .section-title::before {
+/* Music section — violet dot */
+.music-section .section-title::before {
   content: '';
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--violet);
+  flex-shrink: 0;
+}
+
+/* Projects section — teal dot */
+.projects-section .section-title::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--teal);
   flex-shrink: 0;
 }
 
@@ -763,6 +774,14 @@ body.light .card-thumbnail {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
+/* No hover transform on touch — prevents stuck-rotate on iOS first-tap */
+@media (hover: none) {
+  .info-btn:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+}
+
 /* Per-card info button colors */
 .info-violet { background: var(--violet); }
 .info-teal { background: var(--teal); }
@@ -874,6 +893,7 @@ body.light .card-thumbnail {
 
 /* Right side: the expanded info panel */
 .info-tray-content {
+  position: relative;
   flex: 1;
   background: white;
   border-radius: 0 16px 16px 0;
@@ -890,10 +910,11 @@ body.light .card-thumbnail {
   opacity: 1;
 }
 
+/* Desktop close button — absolute within info-tray-content */
 .info-tray-close {
   position: absolute;
   top: 16px;
-  right: calc(4vw + 20px);
+  right: 20px;
   z-index: 2;
   width: 36px;
   height: 36px;
@@ -904,7 +925,6 @@ body.light .card-thumbnail {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, transform 0.2s var(--ease-bounce);
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s 0.2s, background 0.2s, transform 0.2s var(--ease-bounce);
@@ -917,6 +937,46 @@ body.light .card-thumbnail {
 .info-tray-close:hover {
   background: rgba(0, 0, 0, 0.1);
   transform: rotate(90deg);
+}
+
+/* Mobile bottom sheet header (drag handle + close) */
+.sheet-header {
+  display: none; /* desktop: hidden */
+}
+
+.sheet-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(128, 128, 128, 0.25);
+}
+
+.sheet-close {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 1.4rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s var(--ease-bounce);
+}
+
+.sheet-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: rotate(90deg);
+}
+
+body:not(.light) .sheet-header {
+  background: #1a1a1a;
+}
+
+body:not(.light) .sheet-close {
+  color: #ccc;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Tray content layout */
@@ -1110,9 +1170,9 @@ body.light .tray-credits-list li {
   font-weight: 500;
 }
 
-/* --- About Section --- */
+/* --- About / Bio Section (top of page) --- */
 .about {
-  padding: 6rem 4vw;
+  padding: 2.5rem 4vw 4rem;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -1784,6 +1844,12 @@ body.now-playing .cassette-body {
     flex-shrink: 1;
   }
 
+  /* Bigger tap target on mobile */
+  .info-btn {
+    width: 44px;
+    height: 44px;
+  }
+
   .scroll-arrow {
     display: none;
   }
@@ -1792,25 +1858,77 @@ body.now-playing .cassette-body {
     display: block;
   }
 
-  /* Tray stacks vertically on mobile */
+  /* ---- Mobile info tray: bottom sheet ---- */
+
+  /* Sheet slides up from bottom */
+  .info-tray {
+    align-items: flex-end;
+  }
+
+  /* Backdrop: darker, no blur (blur is expensive on mobile) */
+  .info-tray::before {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Sheet container */
   .info-tray-inner {
     flex-direction: column;
-    margin: 2vh 3vw;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-
-  .tray-card-preview {
     width: 100%;
-    min-width: 100%;
-    border-radius: 16px 16px 0 0;
+    max-height: 85vh;
+    margin: 0;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    /* Override desktop opacity-fade with translateY slide */
+    opacity: 1 !important;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1) !important;
   }
 
+  .info-tray.open .info-tray-inner {
+    transform: translateY(0);
+    opacity: 1 !important;
+  }
+
+  /* Show the mobile sheet header */
+  .sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1rem 0.5rem;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 20px 20px 0 0;
+  }
+
+  body:not(.light) .sheet-header {
+    background: #1a1a1a;
+  }
+
+  /* No card preview on mobile — just the content */
+  .tray-card-preview {
+    display: none;
+  }
+
+  /* Content fills the sheet, scrolls internally */
   .info-tray-content {
-    border-radius: 0 0 16px 16px;
+    flex: 1;
+    width: 100%;
+    border-radius: 0;
     border-left: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 1.5rem;
+    border-top: none;
+    padding: 1rem 1.5rem 2.5rem;
+    overflow-y: auto;
+    /* Override desktop translate animation */
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* Desktop close button hidden on mobile */
+  .info-tray-close {
+    display: none;
   }
 
   .blob {

@@ -230,14 +230,16 @@ document.addEventListener('DOMContentLoaded', () => {
       essay: `<div class="tray-essay"><h5>Production Credits</h5><ul class="tray-credits-list"><li>Chloe French — <em>forthcoming</em></li><li>Pollena — <em>forthcoming</em></li><li>Yellow Shoots</li><li>Love Language</li></ul></div>`
     },
     recipeindex: {
-      title: 'Recipe Index',
+      title: 'Recdex',
       desc: 'A personal project born out of frustration with recipe websites. Built from scratch with a focus on readability, a step-by-step cook mode that keeps your screen awake, and zero ads. Designed to be the recipe site I actually wanted to use.',
       subs: [
         { label: 'Cook Mode' },
         { label: 'Typography system' },
         { label: 'Zero-ad design' }
       ],
-      links: []
+      links: [
+        { label: 'recipeindex.org', href: 'https://www.recipeindex.org' }
+      ]
     },
     twosongs: {
       title: 'Two Songs',
@@ -253,7 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { label: 'Algorithmic composition' },
         { label: '10,000 unique pieces' }
       ],
-      links: []
+      links: [
+        { label: 'scape.radio', href: 'https://scape.radio' }
+      ]
     }
   };
 
@@ -263,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const card = btn.closest('.project-card');
 
-    // Build left card preview
+    // Build left card preview (desktop only — hidden on mobile via CSS)
     const thumbEl = card.querySelector('.card-thumbnail');
     const imgEl = thumbEl ? thumbEl.querySelector('img') : null;
     const gradientStyle = thumbEl ? thumbEl.getAttribute('style') : '';
@@ -278,7 +282,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     previewHTML += `<div class="tray-card-info"><div class="tray-card-title">${data.title}</div><div class="tray-card-desc">${cardDesc}</div></div></div>`;
 
-    // Build right info panel content
+    // Mobile sheet header: drag handle + close button (shown only on mobile via CSS)
+    const sheetHeaderHTML = `<div class="sheet-header">
+      <div class="sheet-handle"></div>
+      <button class="sheet-close" aria-label="Close">&times;</button>
+    </div>`;
+
+    // Build info panel content
     let infoHTML = `<div class="tray-header"><h3 class="tray-title">${data.title}</h3></div>`;
 
     if (data.subs.length) {
@@ -317,16 +327,20 @@ document.addEventListener('DOMContentLoaded', () => {
       infoHTML += data.essay;
     }
 
-    // Assemble tray inner: card preview on left, info on right
-    infoTrayInner.innerHTML = previewHTML + `<div class="info-tray-content">${infoHTML}</div>`;
+    // Assemble: sheet header (mobile) + card preview (desktop) + info content
+    infoTrayInner.innerHTML = sheetHeaderHTML + previewHTML + `<div class="info-tray-content">${infoHTML}</div>`;
 
-    // Re-add close button (it was inside tray-inner which we just replaced)
+    // Desktop close button — sits inside info-tray-content, positioned absolute via CSS
     const closeBtn = document.createElement('button');
     closeBtn.className = 'info-tray-close';
     closeBtn.setAttribute('aria-label', 'Close');
     closeBtn.innerHTML = '&times;';
     closeBtn.addEventListener('click', closeTray);
-    infoTrayInner.appendChild(closeBtn);
+    infoTrayInner.querySelector('.info-tray-content').appendChild(closeBtn);
+
+    // Mobile sheet close button
+    const sheetClose = infoTrayInner.querySelector('.sheet-close');
+    if (sheetClose) sheetClose.addEventListener('click', closeTray);
 
     infoTray.classList.add('open');
     infoTray.setAttribute('aria-hidden', 'false');
@@ -338,6 +352,26 @@ document.addEventListener('DOMContentLoaded', () => {
     infoTray.classList.remove('open');
     infoTray.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+  }
+
+  // Close tray on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && infoTray && infoTray.classList.contains('open')) {
+      closeTray();
+    }
+  });
+
+  // Swipe down to dismiss (mobile bottom sheet)
+  if (infoTray) {
+    let touchStartY = 0;
+    infoTray.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    infoTray.addEventListener('touchend', (e) => {
+      const delta = e.changedTouches[0].clientY - touchStartY;
+      if (delta > 80) closeTray(); // swipe down ≥80px closes
+    }, { passive: true });
   }
 
   document.querySelectorAll('.info-btn').forEach(btn => {
@@ -640,21 +674,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Scroll Arrows ----
-  const projectsGrid = document.getElementById('projects-grid');
-  const scrollLeft = document.getElementById('scroll-left');
-  const scrollRight = document.getElementById('scroll-right');
-
-  if (scrollLeft && projectsGrid) {
-    scrollLeft.addEventListener('click', () => {
-      projectsGrid.scrollBy({ left: -300, behavior: 'smooth' });
-    });
-  }
-  if (scrollRight && projectsGrid) {
-    scrollRight.addEventListener('click', () => {
-      projectsGrid.scrollBy({ left: 300, behavior: 'smooth' });
-    });
-  }
+  // ---- Scroll Arrows (works for all .projects-scroll-wrap instances) ----
+  document.querySelectorAll('.projects-scroll-wrap').forEach(wrap => {
+    const grid = wrap.querySelector('.projects-grid');
+    const leftBtn = wrap.querySelector('.scroll-arrow-left');
+    const rightBtn = wrap.querySelector('.scroll-arrow-right');
+    if (leftBtn && grid) leftBtn.addEventListener('click', () => grid.scrollBy({ left: -300, behavior: 'smooth' }));
+    if (rightBtn && grid) rightBtn.addEventListener('click', () => grid.scrollBy({ left: 300, behavior: 'smooth' }));
+  });
 
   // ---- Video Lazy Load ----
   document.querySelectorAll('.video-play-btn').forEach(btn => {
@@ -674,26 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---- Project Filtering ----
-  const filterPills = document.querySelectorAll('.filter-pill');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      filterPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-
-      const filter = pill.dataset.filter;
-
-      projectCards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    });
-  });
+  // Filter pills removed — content is now organized into Music and Projects sections.
 
   // ---- Mobile Hamburger Menu ----
   const hamburger = document.getElementById('hamburger');
