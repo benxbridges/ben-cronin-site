@@ -230,8 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
       essay: `<div class="tray-essay"><h5>Production Credits</h5><ul class="tray-credits-list"><li>Chloe French — <em>forthcoming</em></li><li>Pollena — <em>forthcoming</em></li><li>Yellow Shoots</li><li>Love Language</li></ul></div>`
     },
     recipeindex: {
-      title: 'Recdex',
-      desc: 'A personal project born out of frustration with recipe websites. Built from scratch with a focus on readability, a step-by-step cook mode that keeps your screen awake, and zero ads. Designed to be the recipe site I actually wanted to use.',
+      title: 'Recipe Index',
+      desc: 'A tool to make cooking and following recipes easier. Built from scratch with a focus on readability, a step-by-step cook mode that keeps your screen awake, and zero ads.',
       subs: [
         { label: 'Cook Mode' },
         { label: 'Typography system' },
@@ -529,25 +529,11 @@ document.addEventListener('DOMContentLoaded', () => {
     currentBtn = btn;
     startDemoBeat();
 
-    // Sync cassette visual
-    if (cassette && !cassette.classList.contains('playing')) {
-      cassette.classList.add('playing');
-      cassetteIsPlaying = true;
-      if (cassettePlay) cassettePlay.innerHTML = '&#9646;&#9646;';
-      updateCassetteTrack();
-    }
-
     const duration = 30;
     let elapsed = 0;
     const interval = setInterval(() => {
       if (!btn.classList.contains('playing')) {
         clearInterval(interval);
-        if (cassette) {
-          cassette.classList.remove('playing');
-          cassetteIsPlaying = false;
-          if (cassettePlay) cassettePlay.innerHTML = '&#9654;';
-          updateCassetteTrack();
-        }
         return;
       }
       elapsed += 0.1;
@@ -564,114 +550,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bar.style.width = '0%';
         timeEl.textContent = '0:00';
         stopDemoBeat();
-        if (cassette) {
-          cassette.classList.remove('playing');
-          cassetteIsPlaying = false;
-          if (cassettePlay) cassettePlay.innerHTML = '&#9654;';
-          updateCassetteTrack();
-        }
       }
     }, 100);
-  }
-
-  // ---- Cassette Player ----
-  const cassette = document.getElementById('cassette');
-  const cassettePlay = document.getElementById('cassette-play');
-  const cassettePrev = document.getElementById('cassette-prev');
-  const cassetteNext = document.getElementById('cassette-next');
-  const cassetteTrack = document.getElementById('cassette-track');
-
-  const playlist = [
-    'Choreograph — Gilligan Moss',
-    'Slow Down — Gilligan Moss',
-    'World Service — Gilligan Moss',
-    'Speaking Across Time — Gilligan Moss',
-    'A La Mode — Gilligan Moss',
-    'Do It For Yourself — Gilligan Moss',
-    'Robot Love — BMO\'s Mixtape',
-    'Who Loves You — Gilligan Moss'
-  ];
-  let currentTrackIdx = 0;
-  let cassetteIsPlaying = false;
-
-  function updateCassetteTrack() {
-    if (cassetteTrack) {
-      cassetteTrack.textContent = cassetteIsPlaying ? playlist[currentTrackIdx] : 'Click to play';
-    }
-  }
-
-  const spotifyPanel = document.getElementById('spotify-panel');
-
-  if (cassettePlay) {
-    cassettePlay.addEventListener('click', (e) => {
-      e.stopPropagation();
-      cassetteIsPlaying = !cassetteIsPlaying;
-      cassette.classList.toggle('playing', cassetteIsPlaying);
-      cassettePlay.innerHTML = cassetteIsPlaying ? '&#9646;&#9646;' : '&#9654;';
-
-      // Toggle Spotify panel
-      if (spotifyPanel) {
-        spotifyPanel.classList.toggle('open', cassetteIsPlaying);
-      }
-
-      if (cassetteIsPlaying) {
-        if (cassetteTrack) cassetteTrack.textContent = 'playing from spotify';
-        startDemoBeat();
-      } else {
-        if (cassetteTrack) cassetteTrack.textContent = 'press play';
-        stopDemoBeat();
-      }
-    });
-  }
-
-  if (cassettePrev) {
-    cassettePrev.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentTrackIdx = (currentTrackIdx - 1 + playlist.length) % playlist.length;
-      updateCassetteTrack();
-    });
-  }
-
-  if (cassetteNext) {
-    cassetteNext.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentTrackIdx = (currentTrackIdx + 1) % playlist.length;
-      updateCassetteTrack();
-    });
-  }
-
-  // Drag the entire player-float (cassette + spotify together)
-  const playerFloat = document.getElementById('player-float');
-  if (playerFloat && hasFineCursor) {
-    let isDragging = false;
-    let dragOffsetX = 0, dragOffsetY = 0;
-
-    playerFloat.addEventListener('mousedown', (e) => {
-      if (e.target.closest('button') || e.target.closest('iframe')) return;
-      isDragging = true;
-      const rect = playerFloat.getBoundingClientRect();
-      dragOffsetX = e.clientX - rect.left;
-      dragOffsetY = e.clientY - rect.top;
-      playerFloat.style.transition = 'none';
-      e.preventDefault();
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const x = e.clientX - dragOffsetX;
-      const y = e.clientY - dragOffsetY;
-      playerFloat.style.left = x + 'px';
-      playerFloat.style.top = y + 'px';
-      playerFloat.style.right = 'auto';
-      playerFloat.style.bottom = 'auto';
-    });
-
-    document.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        playerFloat.style.transition = '';
-      }
-    });
   }
 
   // ---- Scroll Arrows (works for all .projects-scroll-wrap instances) ----

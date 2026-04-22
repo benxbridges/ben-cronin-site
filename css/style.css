@@ -56,14 +56,6 @@ body:not(.light) .hero-tagline { color: #666; }
 body:not(.light) .hero-name { color: #e8e4df; }
 body:not(.light) .mobile-menu { background: #111; }
 body:not(.light) .hamburger span { background: #e8e4df; }
-body:not(.light) .cassette-body,
-body:not(.light) .cassette-controls { background: #1a1a1a; border-color: #333; }
-body:not(.light) .cassette-track-name { color: #666; }
-body:not(.light) .cassette.playing .cassette-track-name { color: #ccc; }
-body:not(.light) .cassette-controls button { color: #666; }
-body:not(.light) .cassette-controls button:hover { color: #ccc; }
-body:not(.light) .reel { border-color: var(--coral); }
-body:not(.light) .cassette-tape-window { border-bottom-color: #333; }
 body:not(.light) .secret-section { background: rgba(0,0,0,0.95); }
 body:not(.light) .writing-thumb { background: linear-gradient(135deg, #00C9A7 0%, #1a1a1a 100%) !important; }
 
@@ -1329,157 +1321,6 @@ body.light .tray-credits-list li {
   z-index: 0;
 }
 
-/* --- Cassette Player (sketchy/hand-drawn) --- */
-.cassette {
-  transform: rotate(-1.5deg);
-  transition: box-shadow 0.3s var(--ease-bounce);
-}
-
-.cassette:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-}
-
-.cassette-body {
-  width: 160px;
-  background: var(--bg);
-  border-radius: 14px 12px 16px 13px;
-  padding: 14px 14px 8px;
-  border: 2px dashed var(--muted);
-  position: relative;
-}
-
-.cassette-reels {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10px;
-  margin-bottom: 8px;
-}
-
-.reel {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: transparent;
-  border: 2px dashed var(--coral);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.reel-hub {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--coral);
-}
-
-.cassette.playing .reel {
-  animation: reelSpin 1.2s linear infinite;
-}
-
-@keyframes reelSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.cassette-tape-window {
-  flex: 1;
-  height: 8px;
-  margin: 0 8px;
-  background: transparent;
-  border-bottom: 2px dashed var(--muted);
-}
-
-.cassette-track-name {
-  font-family: var(--font-display);
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: var(--muted);
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 2px 4px 0;
-  letter-spacing: 0.02em;
-}
-
-.cassette.playing .cassette-track-name {
-  color: var(--text);
-}
-
-.cassette-controls {
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  border-radius: 0 0 14px 14px;
-  border: 2px dashed var(--muted);
-  border-top: none;
-  background: var(--bg);
-}
-
-.cassette-controls button {
-  font-size: 0.75rem;
-  color: var(--muted);
-  padding: 5px 14px;
-  transition: color 0.2s;
-  background: transparent;
-  cursor: pointer;
-  font-family: var(--font-ui);
-  font-weight: 700;
-}
-
-.cassette-controls button:hover {
-  color: var(--text);
-}
-
-.cassette-play {
-  color: var(--coral) !important;
-  font-size: 0.85rem !important;
-}
-
-.cassette.playing .cassette-play {
-  color: var(--teal) !important;
-}
-
-/* Player float container (cassette + Spotify married) */
-.player-float {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 90;
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-  cursor: grab;
-  user-select: none;
-}
-
-.player-float:active {
-  cursor: grabbing;
-}
-
-.spotify-panel {
-  width: 300px;
-  opacity: 0;
-  transform: translateX(20px) scale(0.95);
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-bounce);
-}
-
-.spotify-panel.open {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-  pointer-events: auto;
-}
-
-/* Cassette is now inside player-float, not fixed */
-.cassette {
-  position: relative;
-  bottom: auto;
-  right: auto;
-}
-
 /* --- Secret Section --- */
 .secret-section {
   position: fixed;
@@ -1668,11 +1509,6 @@ body.now-playing .project-card {
 body.now-playing .hero-tagline {
   color: var(--coral);
   transition: color 0.6s ease;
-}
-
-body.now-playing .cassette-body {
-  border-color: var(--coral);
-  transition: border-color 0.6s ease;
 }
 
 /* --- Timeline --- */
