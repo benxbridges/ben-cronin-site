@@ -230,11 +230,21 @@ document.addEventListener('DOMContentLoaded', () => {
         { label: 'Spotify', href: 'https://open.spotify.com/album/1h2gxTbV9HF01Ci9IaXGJt' }
       ]
     },
-    rain: {
-      title: 'Will You Bring The Rain?',
-      desc: 'A single.',
+    rain1: {
+      title: 'Will You Bring The Rain? Pt. 1',
+      desc: 'Yellow Shoots EP — first installment of a three-part series. Production by Ben.',
       subs: [],
-      links: []
+      links: [
+        { label: 'Yellow Shoots', href: 'https://yellowshootsmusic.bandcamp.com/' }
+      ]
+    },
+    rain2: {
+      title: 'Will You Bring The Rain? Pt. 2',
+      desc: 'Second installment in the Yellow Shoots EP series — recorded straight to tape, exploring identity and vulnerability. Production by Ben.',
+      subs: [],
+      links: [
+        { label: 'Yellow Shoots', href: 'https://yellowshootsmusic.bandcamp.com/' }
+      ]
     },
     production: {
       title: 'Production & Songwriting',
