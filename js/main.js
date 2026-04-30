@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function pageFromHash() {
     const h = window.location.hash.replace('#', '');
     const valid = Array.from(pages).map(p => p.dataset.page);
-    return valid.includes(h) ? h : 'music';
+    return valid.includes(h) ? h : 'about';
   }
 
   showPage(pageFromHash());
