@@ -267,19 +267,69 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     twosongs: {
       title: 'Two Songs',
-      desc: 'A music newsletter I wrote for several years. Each issue featured two songs — one familiar and one new — with context about why they mattered, how they were made, or what they meant to me. Part music criticism, part personal essay.',
+      desc: 'A music newsletter I wrote for several years. Each issue featured a couple songs at the top, plus a longer dispatch of whatever I was listening to that week — part recommendation, part personal essay.',
       subs: [],
-      links: []
+      links: [],
+      essay: `<div class="tray-essay tray-essay-newsletter">
+        <h5>Sample issue · 062 — "He's British and a Lord"</h5>
+
+        <p>Hello friends! I was in Los Angeles last week so forgive the absence of new music in your inboxes. California is a dream… I tried surfing (it's really hard!), enjoyed a couple MDW BBQs and saw a really horrid ska band at Topanga Days, which was fine because Topanga is heaven on earth. Enough about me, here are some tunes! Two at the top, and a bunch more at the bottom. xx, ben.</p>
+
+        <div class="ts-track">
+          <h6>Erika de Casier — Do My Thing</h6>
+          <span class="ts-source">(Apple Music)</span>
+          <p>Moodboard: dark night jelly shoes, butterfly hair clips, 14 year-old Timbaland, XL airbrush t-shirts. The video for this tune is extremely fresh — it's Erika biking around town, doing her thing… this is an absolute TUNE of the highest order. Shout out to Eric Chen for showing it to me. Her whole debut album just dropped, it's called Essentials. Perfect.</p>
+        </div>
+
+        <div class="ts-track">
+          <h6>Jai Paul — Do You Love Her Now</h6>
+          <span class="ts-source">(Apple Music)</span>
+          <p>This one drips with night magic. It has every element that makes a great Jai Paul song — weird samples, an extremely tight groove, abrasively loud & strange synths, aggressive use of sidechain compression… I have to start it over at 2:30 every time I listen because i am worried i haven't soaked up every bit of it. It's the A-side of a two single release. The other tune "He" is also a true gem.</p>
+        </div>
+
+        <aside class="ts-callout">
+          <p><strong>Red alert</strong> — this Jai Paul album link below is probably my most recommended thing I have ever sent. The album was leaked in 2013 but didn't have an official release (meaning it wasn't available to buy or stream) until this past Saturday. He is one of my single greatest musical heroes, so imagine my delight when I read the news on Saturday that he was releasing new music and officially releasing the leaked album. There is a great article on the Fader from a couple years ago to give you a bit of context.</p>
+        </aside>
+
+        <div class="ts-track">
+          <h6>Album: Jai Paul — Leak 04-13 (Bait Ones)</h6>
+          <span class="ts-source">(Apple Music)</span>
+          <p>It is hard to overstate the importance of Jai Paul… he is probably the single most influential musician of the last ten years who you have never heard of. I will spare you the gushy details, but he is responsible for so much of the sonic landscape of modern pop, experimental, r&b… you name it, and up until this past Saturday he only had two official songs released to his name. An unfinished collection of his songs were leaked in 2013 without his consent and though it was tragic what happened, the songs were immediately injected into the cultural & musical zeitgeists. They were raw, highly experimental & unique in production style & beyond all of it, extremely well written. It literally (don't use the word lightly!) made me misty-eyed to read his statement on the leak and his subsequent mental health problems. These songs have felt like a great secret stash & though it feels strange to see them released (especially with revisions! major demo-itis), I am happy for the man. I cannot recommend the album in its entirety enough — it is amazing how modern it sounds, six years later. You will be surprised what jewels are in his treasure chest.</p>
+        </div>
+
+        <div class="ts-track">
+          <h6>Cautious Clay — Sidewinder</h6>
+          <span class="ts-source">(Apple Music)</span>
+          <p>Cautious Clay is a contender for best artist name of all time. He's also great at writing music — his lyrics are unique feeling but casual & the production is interesting enough to elevate the tunes without overcomplicating them. This one could have easily been blown out, and there are certainly grand moments, but it keeps its cool which i like. Great chord progressions, nice falsetto too :) i found this because he posted it on his instagram.</p>
+        </div>
+
+        <div class="ts-track">
+          <h6>Mattias Aguayo — Support Alien Invasion (album)</h6>
+          <span class="ts-source">(Apple Music)</span>
+          <p>If you like drums, i think you will like this record. I read a review on Pitchfork by Phillip Sherbourne (who is one of the few authors i read w some consistency at Pitchfork) which encouraged the listen. I was much more familiar with humor & joy-rich Aguayo (try "Roller-Skate" and "Ay Ay Ay") but this is a straight ahead drum orgy the whole way through. There is a video for a wild polyrhythmic track called "Pikin" which is pretty playful and involves some freaky interpretation of an already strange track. I would recommend this album if you are really into dance music, or if you're in law school and in need of something agro & mindless to draw you into your texts.</p>
+        </div>
+
+        <div class="ts-track">
+          <h6>Funkadelic — Music 4 My Mother (Underground Resistance Mix)</h6>
+          <span class="ts-source">(Apple Music)</span>
+          <p>I heard this at work the other night & it reminded me of that Daft Punk tune "Teachers." Drums sound great, it is a jammer. Recommended if you like Detroit.</p>
+        </div>
+
+        <div class="ts-track">
+          <h6>Shlohmo — Against the Clock</h6>
+          <span class="ts-source">(Fact Mag)</span>
+          <p>This isn't a song, but if you are a musician or a voyeur who wants to learn a bit more about how the sausage is made, Fact Mag's "Against the Clock" series is a really neat way to do that. It pits musicians against the clock, challenging them to make a song in 10 minutes. It ends up being less about the song they make & more about the process of songwriting for a range of musicians. It is a terrifying prospect but yields neat results & I thought this one with Shlohmo was worth the watch.</p>
+        </div>
+
+        <p class="ts-signoff">Thanks for reading, let me know if you like these tunes or what else I should be listening to!</p>
+      </div>`
     },
     scaperadio: {
       title: 'scape.radio',
-      desc: 'A generative music project that produces 10,000 unique, continuous pieces of ambient and electronic music. Built with algorithmic composition tools — the system creates evolving soundscapes that never repeat.',
-      subs: [
-        { label: 'Algorithmic composition' },
-        { label: '10,000 unique pieces' }
-      ],
+      desc: 'scape.radio is a collection of 10,000 one-minute pieces of music that I assembled by code from stems I composed. It\'s composed in Ableton using stock synthesizers and sampled drum sounds, produced in an 8-bit style. It lives as a continuous player that accompanies a collection of 10,000 digital landscapes.',
+      subs: [],
       links: [
-        { label: 'scape.radio', href: 'https://scape.radio' }
+        { label: 'scape.radio', href: 'https://scapes.xyz/about/scape-radio' }
       ]
     }
   };
