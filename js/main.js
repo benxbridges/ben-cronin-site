@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     scaperadio: {
       title: 'scape.radio',
-      desc: 'A generative music project that produces 10,000 unique, continuous pieces of ambient and electronic music. Built with algorithmic composition tools — the system creates evolving soundscapes that never repeat.',
+      desc: 'scape.radio is a collection of 10,000 one-minute pieces of music that I assembled by code from stems I composed. It\'s composed in Ableton using stock synthesizers and sampled drum sounds, produced in an 8-bit style. It lives as a continuous player that accompanies a collection of 10,000 digital landscapes.',
       subs: [],
       links: [
         { label: 'scape.radio', href: 'https://scapes.xyz/about/scape-radio' }
