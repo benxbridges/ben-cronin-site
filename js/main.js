@@ -274,12 +274,9 @@ document.addEventListener('DOMContentLoaded', () => {
     scaperadio: {
       title: 'scape.radio',
       desc: 'A generative music project that produces 10,000 unique, continuous pieces of ambient and electronic music. Built with algorithmic composition tools — the system creates evolving soundscapes that never repeat.',
-      subs: [
-        { label: 'Algorithmic composition' },
-        { label: '10,000 unique pieces' }
-      ],
+      subs: [],
       links: [
-        { label: 'scape.radio', href: 'https://scape.radio' }
+        { label: 'scape.radio', href: 'https://scapes.xyz/about/scape-radio' }
       ]
     }
   };
