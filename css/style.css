@@ -201,10 +201,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  cursor: pointer;
-  transition: transform 0.4s var(--ease-bounce);
 }
-.cover-tile:hover { transform: translateY(-4px); }
 
 .cover-art {
   position: relative;
@@ -224,7 +221,6 @@ button {
   object-fit: cover;
   transition: transform 0.6s var(--ease-bounce);
 }
-.cover-tile:hover .cover-art img { transform: scale(1.03); }
 
 .cover-fallback-text {
   display: none;
@@ -258,6 +254,59 @@ button {
   font-weight: 400;
   font-size: 0.82rem;
   color: var(--muted);
+}
+
+/* --- Projects (Editorial list) --- */
+.projects-list {
+  max-width: 760px;
+  margin: 1.5rem auto 0;
+}
+.project-entry {
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.project-entry:first-child { padding-top: 0.5rem; }
+.project-entry:last-child { border-bottom: none; }
+.project-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.project-entry-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  letter-spacing: -0.01em;
+}
+.project-entry-meta {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+.project-entry-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+}
+.project-entry-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 65ch;
+}
+.project-entry-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  color: var(--violet);
+  border-bottom: 1px solid currentColor;
 }
 
 /* --- Text Pages (Credits / About / Contact) --- */
@@ -300,6 +349,12 @@ button {
   font-size: 0.95rem;
 }
 .credits-list li span { color: var(--text); }
+.credits-list li a {
+  color: var(--violet);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.credits-list li a:hover { border-bottom-color: var(--violet); }
 .credits-list li em {
   font-style: normal;
   font-family: var(--font-ui);

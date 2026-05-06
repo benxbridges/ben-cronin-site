@@ -84,13 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Cover Tile → Info Tray ----
-  document.querySelectorAll('.cover-tile').forEach(tile => {
-    tile.addEventListener('click', () => {
-      const projectId = tile.dataset.project;
-      if (projectId) openTray(projectId, tile);
-    });
-  });
+  // ---- Cover Tile clicks: disabled for now (tiles display only) ----
 
   // ---- Custom Cursor ----
   const hasFineCursor = window.matchMedia('(pointer: fine)').matches;
@@ -108,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateCursor();
 
-    const interactives = document.querySelectorAll('a, button, .cover-tile');
+    const interactives = document.querySelectorAll('a, button');
     interactives.forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
@@ -135,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let overInteractive = false;
     function bindInteractives() {
-      document.querySelectorAll('a, button, .cover-tile, .info-tray').forEach(el => {
+      document.querySelectorAll('a, button, .info-tray').forEach(el => {
         if (el.dataset.scribbleBound) return;
         el.dataset.scribbleBound = '1';
         el.addEventListener('mouseenter', () => { overInteractive = true; });
